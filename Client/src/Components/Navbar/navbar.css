@@ -1,0 +1,42 @@
+.navbar {
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 0.5em;
+    background-color: #fcfbfd;
+    border-bottom: 1px solid black;
+}
+
+nav h1 {
+    font-size: 2em;
+    margin-block: 0;
+    margin-left: 1em;
+    color: #7d2ae8;
+}
+
+nav span {
+    color: black;
+}
+
+.btn-container {
+    display: flex;
+}
+
+.btn {
+    margin-inline: 1em;
+    /* border: 2px dotted red; */
+    border-radius: 4px;
+    padding: 0.4em 1em;
+    color: #edf5e1;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.btn-login {
+    background-color: #e4e3ec;
+    color: black;
+}
+.btn-register {
+    background-color: #7d2ae8;
+}
