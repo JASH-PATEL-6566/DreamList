@@ -1,6 +1,8 @@
 import React from 'react'
 import { FaSearch } from 'react-icons/fa';
 import img from '../../test_img/img.webp';
+import download from '../../test_img/download.jpg';
+import Add from '../../Components/Navbar/Add/Add';
 
 function Places() {
     return (
@@ -12,9 +14,19 @@ function Places() {
             </div>
             <div className="place-card-container">
                 <div className="place-card">
-                    <img src={img} alt="" />
+                    <img className='image' src={download} alt="" />
+                    <div class="overlay">
+                        <div class="text">Black Hole</div>
+                    </div>
+                </div>
+                <div className="place-card">
+                    <img className='image' src={img} alt="" />
+                    <div class="overlay">
+                        <div class="text">Santorini</div>
+                    </div>
                 </div>
             </div>
+            <Add />
         </div>
     )
 }
