@@ -42,7 +42,7 @@ body {
 .find-place {
     margin: 3em 0;
     height: 2em;
-    font-size: 1em;
+    font-size: 1.2em;
     padding: 0.2em 0.9em;
     width: 30%;
     border-style: none;
@@ -60,7 +60,8 @@ body {
     display: flex;
     align-items: center;
     height: 2em;
-    padding: 1.5em 0.9em;
+    padding: 1.71em 1.35em;
+    cursor: pointer;
     border-style: none;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
         rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
