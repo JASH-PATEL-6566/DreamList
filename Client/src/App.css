@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.container-home {
+    border: 2px solid black;
+}
+
+.not-log {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Places */
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(235, 238, 240); */
+}
+
+.find-place {
+    margin: 3em 0;
+    height: 2em;
+    font-size: 1em;
+    padding: 0.2em 0.9em;
+    width: 30%;
+    border-style: none;
+    background-color: #e4e3ec;
+    border-radius: 0.5em 0 0 0.5em;
+    caret-color: #7d2ae8;
+    font-weight: 600lzkdals;
+}
+
+.search-btn {
+    background-color: #7d2ae8;
+    border-radius: 0 0.5em 0.5em 0;
+    display: flex;
+    align-items: center;
+    height: 2em;
+    padding: 1.5em 0.9em;
+    border-style: none;
+}
+
+.search-btn :hover {
+    cursor: pointer;
+}
+
+.search-img {
+    filter: invert(1);
+}
+
+.place-card-container {
+    margin-inline: 3em;
+    border: 2px solid red;
+    display: flex;
+}
+
+.place-card {
+    border: 2px dotted blue;
+    width: 25%;
+}
+
+.place-card img {
+    width: 100%;
+}

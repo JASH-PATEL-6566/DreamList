@@ -2,11 +2,11 @@ import React from 'react'
 import { Outlet } from 'react-router-dom';
 import Navbar from '../Components/Navbar/Navbar';
 
-function SharedLayout() {
+function SharedLayout({ user, setUser }) {
     return (
         <>
-            <Navbar />
-            <Outlet />
+            <Navbar user={user} setUser={setUser} />
+            <Outlet user={user} />
         </>
     )
 }

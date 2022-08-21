@@ -3,9 +3,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-block: 0.5em;
+    padding-block: 0.8em;
     background-color: #fcfbfd;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 nav h1 {
@@ -37,6 +39,12 @@ nav span {
     background-color: #e4e3ec;
     color: black;
 }
-.btn-register {
+.btn-register,
+.btn-logout {
     background-color: #7d2ae8;
+}
+
+.btn-container span {
+    margin: auto;
+    font-weight: 600;
 }

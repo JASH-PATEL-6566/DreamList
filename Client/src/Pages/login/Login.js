@@ -1,15 +1,19 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+import './login.css'
 
 function Login() {
     return (
         <div className="container">
             <form action="">
                 <h2>Login</h2>
-                <label htmlFor="email">Username</label>
-                <input type="text" name='username' className='username' placeholder='Enter username' />
-                <label htmlFor="email">Password</label>
-                <input type="password" name='Password' className='Password' placeholder='Enter Password' />
-
+                <p htmlFor="email">Username :</p>
+                <input type="text" name='username' className='inp username' placeholder='Enter username' />
+                <p htmlFor="email">Password :</p>
+                <input type="password" name='Password' className='inp password' placeholder='Enter Password' />
+                <div type='submit' className='login' >Login</div>
+                <span>OR</span>
+                <NavLink to='/register' type='submit' className='register' >Register</NavLink>
             </form>
         </div>
     )
