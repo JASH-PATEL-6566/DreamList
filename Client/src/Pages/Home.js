@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Places from './Places/Places'
 
 function Home({ user }) {

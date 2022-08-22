@@ -15,14 +15,14 @@ function Places() {
             <div className="place-card-container">
                 <div className="place-card">
                     <img className='image' src={download} alt="" />
-                    <div class="overlay">
-                        <div class="text">Black Hole</div>
+                    <div className="overlay">
+                        <div className="text">Black Hole</div>
                     </div>
                 </div>
                 <div className="place-card">
                     <img className='image' src={img} alt="" />
-                    <div class="overlay">
-                        <div class="text">Santorini</div>
+                    <div className="overlay">
+                        <div className="text">Santorini</div>
                     </div>
                 </div>
             </div>

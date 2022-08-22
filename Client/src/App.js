@@ -10,6 +10,8 @@ import Login from './Pages/login/Login';
 // import Navbar from './Components/Navbar/Navbar'
 import Register from './Pages/register/Register';
 import Home from './Pages/Home';
+import axios from 'axios';
+const SERVER_URL = 'http://localhost:9002/';
 
 function App() {
   const [user, setUser] = useState(true);
