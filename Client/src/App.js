@@ -14,7 +14,7 @@ import axios from 'axios';
 const SERVER_URL = 'http://localhost:9002/';
 
 function App() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
   return (
     <BrowserRouter>
       <Routes>

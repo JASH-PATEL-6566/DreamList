@@ -1,19 +1,21 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import './login.css'
 
 function Login() {
+    const navigate = useNavigate();
     return (
         <div className="container">
             <form action="">
                 <h2>Login</h2>
                 <p htmlFor="email">Username :</p>
-                <input type="text" name='username' className='inp username' placeholder='Enter username' />
+                <input required type="text" name='username' className='inp username' placeholder='Enter username' />
                 <p htmlFor="email">Password :</p>
-                <input type="password" name='Password' className='inp password' placeholder='Enter Password' />
-                <div type='submit' className='login' >Login</div>
+                <input required type="password" name='Password' className='inp password' placeholder='Enter Password' />
+                <label className='error hide'>*Invalid Username and Password</label>
+                <button type='submit' className='login' >Login</button>
                 <span>OR</span>
-                <NavLink to='/register' type='submit' className='register' >Register</NavLink>
+                <button onClick={() => navigate('/register')} className='register' >Register</button>
             </form>
         </div>
     )

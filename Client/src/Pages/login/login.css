@@ -2,7 +2,7 @@
     margin: 0;
     position: absolute;
     border-radius: 4px;
-    top: 45%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 1rem;
@@ -47,21 +47,35 @@ form span {
 .login,
 .register {
     /* border: 2px solid black; */
-    background-color: #7d2ae8;
-    color: white;
     margin-inline: 1em;
     border-radius: 4px;
     padding: 0.4em 1em;
     font-weight: 500;
     margin: auto;
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: center;
     cursor: pointer;
     text-decoration: none;
+    border-style: none;
+    font-size: 1.1em;
 }
 
 .register {
     background-color: #e4e3ec;
     color: black;
+}
+
+.login {
+    background-color: #7d2ae8;
+    color: white;
+}
+
+.error {
+    margin: -1em 0 1em 0;
+    color: red;
+}
+
+.hide {
+    visibility: hidden;
 }

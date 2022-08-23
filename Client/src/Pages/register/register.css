@@ -1,9 +1,25 @@
-.login {
+.login-r,
+.register-r {
+    margin-inline: 1em;
+    border-radius: 4px;
+    padding: 0.4em 1em;
+    font-weight: 500;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    border-style: none;
+    font-size: 1.1em;
+}
+
+.login-r {
     background-color: #e4e3ec;
     color: black;
 }
 
-.register {
+.register-r {
     background-color: #7d2ae8;
     color: #e4e3ec;
 }

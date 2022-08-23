@@ -2,7 +2,7 @@ import React from 'react'
 import { FaSearch } from 'react-icons/fa';
 import img from '../../test_img/img.webp';
 import download from '../../test_img/download.jpg';
-import Add from '../../Components/Navbar/Add/Add';
+import Add from '../../Components/Add/Add';
 
 function Places() {
     return (
