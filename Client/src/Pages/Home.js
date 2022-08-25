@@ -1,16 +1,22 @@
 import React from 'react';
 import Places from './Places/Places'
+import Popup from '../Components/popup/Popup';
+import { useAuth } from '../Context/AuthContext';
 
 function Home({ user }) {
+    const { currentUser } = useAuth();
     return (
         <div className="container-home">
-            {!user &&
+            {!currentUser &&
                 <h1 className='not-log'>Please, Login First</h1>
             }
-            {user &&
-                <div className="log">
-                    <Places />
-                </div>
+            {currentUser &&
+                <>
+                    <div className="log">
+                        <Places />
+                    </div>
+                    <Popup />
+                </>
             }
         </div>
     )

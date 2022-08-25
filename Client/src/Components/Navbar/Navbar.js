@@ -1,28 +1,35 @@
 import './navbar.css'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../Context/AuthContext'
 
-function Navbar({ user, setUser }) {
+function Navbar() {
+    const history = useNavigate();
+    const { currentUser, logout } = useAuth();
+
     return (
         <nav className='navbar'>
             <h1>Dream<span>List</span></h1>
             <div className="btn-container">
-                {!user &&
+                {!currentUser &&
                     <>
-                        <NavLink to='/login' className="btn btn-login">
+                        <button className="btn btn-login" onClick={() => history('/login')}>
                             Log in
-                        </NavLink>
-                        <NavLink to='/register' className="btn btn-register">
+                        </button>
+                        <button className="btn btn-register" onClick={() => history('/register')}>
                             Register
-                        </NavLink>
+                        </button>
                     </>
                 }
-                {user &&
+                {currentUser &&
                     <>
-                        <span>Welcome , JASH PATEL</span>
-                        <NavLink to='/' className="btn btn-logout" onClick={() => setUser(null)}>
+                        <span>{currentUser.email}</span>
+                        <button className="btn btn-logout" onClick={() => {
+                            logout()
+                            history('/')
+                        }}>
                             LogOut
-                        </NavLink>
+                        </button>
                     </>
                 }
             </div>

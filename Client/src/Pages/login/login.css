@@ -79,3 +79,12 @@ form span {
 .hide {
     visibility: hidden;
 }
+
+.success {
+    margin: -1em 0 1em 0;
+    color: green;
+}
+
+.link {
+    margin: 1em auto;
+}

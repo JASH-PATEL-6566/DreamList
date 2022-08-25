@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   BrowserRouter,
   Routes,
@@ -9,21 +8,25 @@ import SharedLayout from './Pages/SharedLayout';
 import Login from './Pages/login/Login';
 // import Navbar from './Components/Navbar/Navbar'
 import Register from './Pages/register/Register';
+import AuthProvider from './Context/AuthContext';
 import Home from './Pages/Home';
-import axios from 'axios';
-const SERVER_URL = 'http://localhost:9002/';
+import ForgotPassword from "./Pages/forgotPassword/ForgotPassword";
 
 function App() {
-  const [user, setUser] = useState(false);
+  // const [user, setUser] = useState({});
+  // console.log(user);
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/' element={<SharedLayout user={user} setUser={setUser} />}>
-          <Route index element={<Home user={user} />} />
-        </Route>
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path='/login' element={<Login />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/' element={<SharedLayout />}>
+            <Route index element={<Home />} />
+          </Route>
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
