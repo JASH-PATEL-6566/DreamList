@@ -22,20 +22,20 @@ form h2 {
 }
 
 form p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
     margin: 0;
 }
 
 form span {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     margin: 0.5em auto;
 }
 
 .inp {
     caret-color: #7d2ae8;
-    font-size: 1em;
+    font-size: 0.95em;
     padding: 0.7em 1em;
     border-style: none;
     background-color: rgb(233, 233, 233);
@@ -87,4 +87,6 @@ form span {
 
 .link {
     margin: 1em auto;
+    text-decoration: none;
+    color: #804fa8;
 }

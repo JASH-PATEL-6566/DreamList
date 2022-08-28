@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 const PlaceListSchema = require('./placeList');
 
 const UserSchema = Schema({
-    username: String,
-    password: String,
+    _id : String,
+    userName : String,
     places: [PlaceListSchema]
 })
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Places from './Places/Places'
-import Popup from '../Components/popup/Popup';
+// import Popup from '../Components/popup/Popup';
 import { useAuth } from '../Context/AuthContext';
 
 function Home({ user }) {
@@ -15,7 +15,7 @@ function Home({ user }) {
                     <div className="log">
                         <Places />
                     </div>
-                    <Popup />
+                    {/* <Popup /> */}
                 </>
             }
         </div>

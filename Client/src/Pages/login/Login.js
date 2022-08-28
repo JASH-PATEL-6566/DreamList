@@ -4,9 +4,10 @@ import './login.css'
 // const SERVER_URL = 'http://localhost:9002/';
 import { useAuth } from '../../Context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom'
+import axios from 'axios';
 
 
-function Login() {
+function Login({ setUser }) {
 
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -15,48 +16,31 @@ function Login() {
     const [loading, setLoading] = useState(false);
     const history = useNavigate();
 
-    async function handleSubmit(e) {
+    function handleSubmit(e) {
         e.preventDefault();
 
-        // try {
         setError('')
         setLoading(true)
-        await login(emailRef.current.value, passwordRef.current.value);
-        history('/');
-        // } catch {
-        //     setError('Failed to Sign In')
-        // }
+        login(emailRef.current.value, passwordRef.current.value)
+            .then((res) => {
+                axios.post('http://localhost:9002', { id: res.user.uid, message: 'GET_DATA' })
+                    .then(res => {
+                        setUser(res.data[0]);
+                        history('/');
+                    })
+            })
+            .catch((err) => {
+                switch (err.code) {
+                    case 'auth/wrong-password':
+                        setError('Wrong Password.....Please try again')
+                        break;
+                    default:
+                        setError('something went Wrong....Please try again')
+                        break;
+                }
+            })
         setLoading(false)
     }
-    // const message_error = useRef();
-    // const navigate = useNavigate();
-    // const [details, setDetails] = useState({
-    //     username: '',
-    //     password: ''
-    // })
-
-    // const setUseStateProps = (name, value) => {
-    //     setDetails({ ...details, [name]: value })
-    // }
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-
-    //     axios.post(SERVER_URL, { message: 'LOGIN', details })
-    //         .then(res => {
-    //             const { message, data } = res.data;
-    //             if (message === 'done') {
-    //                 setUser(data)
-    //                 message_error.current.classList.add('hide');
-    //                 navigate('/')
-    //             }
-    //             else {
-    //                 console.log('fail');
-    //                 message_error.current.classList.remove('hide');
-    //                 setDetails({ username: '', password: '' });
-    //             }
-    //         })
-    // }
 
     return (
         <div className="container">

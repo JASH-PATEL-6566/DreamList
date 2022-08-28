@@ -2,13 +2,9 @@ import React from 'react'
 import './popup.css';
 
 function Popup() {
+
     return (
-        <div id="myModal" className="modal">
-            <div className="modal-content">
-                <span className="close">&times;</span>
-                <p>Some text in the Modal..</p>
-            </div>
-        </div>
+        <h1>Hello there</h1>
     )
 }
 

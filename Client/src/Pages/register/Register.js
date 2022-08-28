@@ -2,63 +2,47 @@ import React, { useRef, useState } from 'react'
 import './register.css'
 import { useAuth } from '../../Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Register() {
     const emailRef = useRef();
+    const usernameRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
     const { signup } = useAuth();
     const [error, setError] = useState();
     const [loading, setLoading] = useState(false);
     const history = useNavigate();
-    // +++++++++++++++++++++++++++++++++++++++++ujkjjoo88
-    // const message = useRef(null);
-    // const [message_info, setMessageInfo] = useState();
-    // const navigate = useNavigate();
-    // const [props, setProps] = useState({
-    //     username: '',
-    //     password: '',
-    //     conform_password: ''
-    // });
 
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         if (passwordRef.current.value !== passwordConfirmRef.current.value) {
             return setError('Password do not match')
         }
-
-        // try {
         setError('')
         setLoading(true)
-        await signup(emailRef.current.value, passwordRef.current.value);
-        history('/login')
-
-        // } catch {
-        //     setError('Failed to create an account')
-        // }
+        signup(emailRef.current.value, passwordRef.current.value)
+            .then((res) => {
+                axios.post('http://localhost:9002/', { username: usernameRef.current.value, _id: res.user.uid, message: 'ADD_NEW_USER' })
+                    .then(() => history('/login'))
+                    .catch(() => setError('Something went wrong.... Please try again'))
+            })
+            .catch(err => {
+                switch (err.code) {
+                    case 'auth/email-already-in-use':
+                        setError('User already in exist !')
+                        break;
+                    case 'auth/weak-password':
+                        setError('Length of password must be more than 6')
+                        break;
+                    default:
+                        setError('Something went wrong.... Please try again')
+                }
+                emailRef.current.value = '';
+            })
         setLoading(false)
-        // e.preventDefault();
-
-        // if (props.password === props.conform_password) {
-
-        //     axios.post(SERVER_URL, { props, message: 'ADD_USER' })
-        //         .then(res => {
-        //             const message_info = res.data;
-        //             console.log(res.data);
-        //             message.current.classList.add('hide');
-        //             if (message_info.message === 'user added successfully') {
-        //                 message.current.classList.add('hide');
-        //                 setProps({ password: '', conform_password: '', username: '' });
-        //                 navigate('/login');
-        //             }
-        //             else {
-        //                 message.current.classList.remove('hide');
-        //                 // message.current.classList.remove('hide');
-        //                 setMessageInfo('*User already exist')
-        //             }
-        //         })
     }
 
 
@@ -66,15 +50,17 @@ function Register() {
         <div className="container">
             <form method='POST' onSubmit={handleSubmit}>
                 <h2>Register</h2>
-                <p htmlFor="username">Email :</p>
-                <input required type="email" ref={emailRef} name='username' className='inp username' placeholder='Enter username' />
+                <p htmlFor="email">Email :</p>
+                <input required type="email" ref={emailRef} name='email' className='inp email' placeholder='Enter Your Email' />
+
+                <p htmlFor="username">Username :</p>
+                <input required type="username" ref={usernameRef} name='username' className='inp username' placeholder='Enter username' />
 
                 <p htmlFor="password">Password :</p>
                 <input required type="password" name='password' className='inp password' placeholder='Enter Password' ref={passwordRef} />
 
                 <p htmlFor="conform_password">Conform Password :</p>
                 <input required type="password" name='conform_password' className='inp password' placeholder='Enter Password' ref={passwordConfirmRef} />
-                {/* <label ref={message} className='error hide'>{message_info}</label> */}
                 {error && <label className='error'>{error}</label>}
                 <button disabled={loading} type='submit' className='register-r' >Register</button>
                 <span>OR</span>
