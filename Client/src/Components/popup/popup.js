@@ -1,10 +1,12 @@
 import React from 'react'
-import './popup.css';
+import PopupForm from './PopupForm';
 
-function Popup() {
+function Popup({ popup }) {
 
     return (
-        <h1>Hello there</h1>
+        <div className={`popup_container ${!popup ? 'display_none' : ''}`}>
+            <PopupForm />
+        </div>
     )
 }
 

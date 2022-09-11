@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import Places from './Places/Places'
-// import Popup from '../Components/popup/Popup';
+import Popup from '../Components/popup/Popup';
 import { useAuth } from '../Context/AuthContext';
+import Add from '../Components/Add/Add';
 
 function Home({ user }) {
     const { currentUser } = useAuth();
+    const add = useRef();
+    const [popup, setPopup] = useState(false);
     return (
         <div className="container-home">
             {!currentUser &&
@@ -15,7 +18,8 @@ function Home({ user }) {
                     <div className="log">
                         <Places />
                     </div>
-                    {/* <Popup /> */}
+                    <Add add={add} setPopup={setPopup} popup={popup} />
+                    <Popup popup={popup} />
                 </>
             }
         </div>

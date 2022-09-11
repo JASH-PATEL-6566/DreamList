@@ -4,10 +4,10 @@ import Navbar from '../Components/Navbar/Navbar';
 
 function SharedLayout({ user }) {
     return (
-        <>
+        <div className='shared'>
             <Navbar user={user} />
             <Outlet />
-        </>
+        </div>
     )
 }
 

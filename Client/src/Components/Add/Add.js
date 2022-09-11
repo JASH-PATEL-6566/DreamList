@@ -1,10 +1,11 @@
 import React from 'react'
 import { BsPlusLg } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
-function Add() {
+function Add({ setPopup, popup }) {
     return (
-        <div className="btn-add">
-            <BsPlusLg className='plus-img' size={35} />
+        <div className='btn-add' onClick={() => setPopup(!popup)}>
+            <BsPlusLg className={`plus-img ${popup ? 'btn-add-rotated' : ''}`} size={35} />
         </div>
     )
 }
