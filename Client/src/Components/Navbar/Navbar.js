@@ -3,9 +3,11 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../Context/AuthContext'
 
-function Navbar({ user }) {
+function Navbar({ data }) {
     const history = useNavigate();
     const { currentUser, logout } = useAuth();
+
+    // console.log(currentUser);
 
     return (
         <nav className='navbar'>
@@ -23,7 +25,7 @@ function Navbar({ user }) {
                 }
                 {currentUser &&
                     <>
-                        <span>Welcome , {user.userName}</span>
+                        <span>Welcome , {data && data.userName}</span>
                         <button className="btn btn-logout" onClick={() => {
                             logout()
                             history('/')

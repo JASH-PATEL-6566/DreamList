@@ -4,10 +4,11 @@ import Popup from '../Components/popup/Popup';
 import { useAuth } from '../Context/AuthContext';
 import Add from '../Components/Add/Add';
 
-function Home({ user }) {
+function Home({ user, data }) {
     const { currentUser } = useAuth();
     const add = useRef();
     const [popup, setPopup] = useState(false);
+
     return (
         <div className="container-home">
             {!currentUser &&
@@ -16,7 +17,7 @@ function Home({ user }) {
             {currentUser &&
                 <>
                     <div className="log">
-                        <Places />
+                        <Places data={data} />
                     </div>
                     <Add add={add} setPopup={setPopup} popup={popup} />
                     <Popup popup={popup} />

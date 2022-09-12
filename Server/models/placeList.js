@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const PlaceListSchema = Schema({
     name: String,
     discription: String,
-    tags: [{ name: String }]
+    image_link: String
 })
 
 module.exports = PlaceListSchema;

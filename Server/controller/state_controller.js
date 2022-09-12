@@ -31,5 +31,32 @@ module.exports = {
             user.save()
                 .then(() => res.send({ message: 'User created' }))
         }
+
+        if (message === 'ADD_PLACE') {
+            const { data, userId } = req.body;
+            const { name, discription, image_link } = data;
+
+            User.find({ _id: userId })
+                .then((data) => {
+
+                    data[0].update({ $push: { places: { name, discription, image_link } } }, function (err, result) {
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            res.send('done')
+                        }
+                    })
+                    // res.send('done')
+                })
+        }
+
+        if (message === 'GET_USER_INFO') {
+            const { id } = req.body;
+
+            User.find({ _id: id })
+                .then((user) => {
+                    res.send(user[0])
+                })
+        }
     }
 }
